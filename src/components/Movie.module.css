@@ -18,3 +18,7 @@
   margin: 0;
   font-size: 1rem;
 }
+.movie button{
+ background-color: red;
+ color: whitesmoke;
+}

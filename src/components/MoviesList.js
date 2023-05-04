@@ -12,8 +12,13 @@ const MovieList = (props) => {
           title={movie.title}
           releaseDate={movie.releaseDate}
           openingText={movie.openingText}
+          id={movie.id}
+          // onDeleteMovie={movie.onDeleteMovie}
+          onDeleteMovieHandler={props.onDeleteMovie}
+
         />
       ))}
+      
     </ul>
   );
 };
