@@ -1,5 +1,5 @@
 
-import React, { useState,useEffect } from 'react';
+import React, { useState,useEffect,useCallback } from 'react';
 import MoviesList from './components/MoviesList';
 import './App.css';
 
@@ -7,11 +7,9 @@ function App() {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading]=useState(false);
   const[error,setError]=useState(null);
-  useEffect(()=>{
-    fetchMovieHandler();
-  },[]);
+  
 
- async function fetchMovieHandler() {
+ const fetchMovieHandler=useCallback (async ()=> {
   setIsLoading(true);
   setError(null);
   try{
@@ -38,7 +36,12 @@ function App() {
       }
       setIsLoading(false);
      
-  }
+  },[]);
+
+  useEffect(()=>{
+    fetchMovieHandler();
+  },[]);
+  
   // if(error){
   //       setTimeout(()=>{
           
